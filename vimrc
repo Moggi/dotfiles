@@ -1,6 +1,7 @@
 "make it easy, please"
 
-set nocompatible				"bye vi
+set nocompatible
+syntax enable
 
 """"""""""""""""""""""""""""""""
 "	PLUG
@@ -14,10 +15,6 @@ Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
 
 call plug#end()
-
-
-syntax enable
-
 
 """"""""""""""""""""""""""""""""
 "	GENERAL
@@ -97,10 +94,7 @@ nnoremap B ^					"move to beginning of line
 nnoremap E $					"move to end of line
 
 "$ and ^ doesn't do anything
-" nnoremap $ <nop>	
+" nnoremap $ <nop>
 " nnoremap ^ <nop>
 
 nnoremap gV `[v`]
-
-
-

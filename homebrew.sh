@@ -1,6 +1,6 @@
 #/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install zsh
 brew install git
+brew install zsh
 brew install vim
 brew install curl
 brew install wget
@@ -13,6 +13,7 @@ brew install tmux
 brew install jq			#you never know when..
 brew install htop
 brew install figlet		#yeah
+brew install tree
 
 brew install python3
 brew install node

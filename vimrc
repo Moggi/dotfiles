@@ -85,7 +85,7 @@ set foldenable					"enable folding
 set foldlevelstart=10			"open most folds by default
 
 """"""""""""""""""""""""""""""""
-"	Movement
+"	MOVEMENT
 """"""""""""""""""""""""""""""""
 nnoremap j gj					"if there's a very long line that gets visually wrapper to two lines
 nnoremap k gk					"j and k won't skip over the "fake" part of the visual line
@@ -94,7 +94,16 @@ nnoremap B ^					"move to beginning of line
 nnoremap E $					"move to end of line
 
 "$ and ^ doesn't do anything
-" nnoremap $ <nop>
-" nnoremap ^ <nop>
+nnoremap $ <nop>
+nnoremap ^ <nop>
 
 nnoremap gV `[v`]
+
+""""""""""""""""""""""""""""""""
+"	MAP
+""""""""""""""""""""""""""""""""
+map <Space> <Leader>
+
+nnoremap <Leader><Space> :nohlsearch<CR>	"remove search highlighting
+
+

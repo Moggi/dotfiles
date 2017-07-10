@@ -10,6 +10,7 @@ brew install docker
 brew install docker-machine
 brew install tmux
 
+brew install dos2unix
 brew install jq			#you never know when..
 brew install htop
 brew install figlet		#yeah

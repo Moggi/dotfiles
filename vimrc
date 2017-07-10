@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'romainl/vim-cool'
 
 call plug#end()
 

@@ -47,7 +47,6 @@ set autoindent					"repeat indentation on new line
 "set smartindent					"auto indent after keywords
 
 "ts = tabstop / sw = shiftwidth / sts = softtabstop
-"from @augustold
 augroup filetypeTab
 	au FileType c,cpp setlocal ts=8 sw=8 tw=80
 	au Filetype python,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
@@ -97,7 +96,7 @@ nnoremap E $					"move to end of line
 nnoremap $ <nop>
 nnoremap ^ <nop>
 
-nnoremap gV `[v`]
+" nnoremap gV `[v`]
 
 """"""""""""""""""""""""""""""""
 "	MAP

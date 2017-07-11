@@ -104,6 +104,4 @@ nnoremap ^ <nop>
 """"""""""""""""""""""""""""""""
 map <Space> <Leader>
 
-nnoremap <Leader><Space> :nohlsearch<CR>	"remove search highlighting
-
 

@@ -2,7 +2,9 @@
 
 brew tap thoughtbot/formulae
 brew install rcm
-rcup -x "LICENSE README.md container.sh debian.sh homebrew.sh"
+rcup bash_profile
+rcup vimrc
+rcup zshrc
 
 brew install git
 brew install zsh

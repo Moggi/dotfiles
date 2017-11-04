@@ -4,7 +4,9 @@ wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
 echo "deb http://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
 sudo apt-get update
 sudo apt-get install -y rcm
-rcup -x "LICENSE README.md container.sh debian.sh homebrew.sh"
+rcup bash_profile
+rcup vimrc
+rcup zshrc
 
 sudo apt-get install -y git\
 	wget\

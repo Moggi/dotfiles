@@ -3,10 +3,12 @@ apt-get update
 wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | apt-key add -
 echo "deb http://apt.thoughtbot.com/debian/ stable main" | tee /etc/apt/sources.list.d/thoughtbot.list
 apt-get update
-apt-get install rcm
-rcup -x "LICENSE README.md container.sh debian.sh homebrew.sh"
+apt-get install -y rcm
+rcup bash_profile
+rcup vimrc
+rcup zshrc
 
-apt-get install git\
+apt-get install -y git\
 	wget\
 	curl\
 	vim\

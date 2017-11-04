@@ -14,6 +14,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'romainl/vim-cool'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 call plug#end()
 
@@ -54,8 +55,8 @@ augroup filetypeTab
 	au Filetype python setlocal tw=79
 	au Filetype tex setlocal tw=80 directory=.
 	au Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-	"au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
-	au Filetype html,javascript,vim,json,help setlocal ts=4 sw=4 sts=4
+	au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
+	"au Filetype html,javascript,vim,json,help setlocal ts=4 sw=4 sts=4
 augroup END
 
 
@@ -104,4 +105,12 @@ nnoremap ^ <nop>
 """"""""""""""""""""""""""""""""
 map <Space> <Leader>
 
+" select all
+nmap <Leader>a ggVG
 
+" save, quit, quit all
+nnoremap <Leader>w :w!<CR>
+nnoremap <Leader>W :w !sudo tee %> /dev/null<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap Q :q!<CR>
+"nnoremap <Leader>Q :qa!<CR>

@@ -42,8 +42,8 @@ colorscheme hybrid_material		"angr, jellybeans, despacio, hybrid_material
 """"""""""""""""""""""""""""""""
 "	SPACES AND TABS
 """"""""""""""""""""""""""""""""
-"set tabstop=4					"number of visual spaces per TAB
-"set softtabstop=4				"number of spaces in tab when editing
+set tabstop=4					"number of visual spaces per TAB
+set softtabstop=4				"number of spaces in tab when editing
 "set expandtab					"tabs are space		// do not
 set autoindent					"repeat indentation on new line
 "set smartindent					"auto indent after keywords

@@ -2,9 +2,7 @@
 
 brew tap thoughtbot/formulae
 brew install rcm
-rcup bash_profile
-rcup vimrc
-rcup zshrc
+echo "rcm for dotfiles: 'mkrc <files>' then 'rcup <files>'"
 
 brew install git
 brew install zsh
@@ -21,6 +19,7 @@ brew install jq
 brew install htop
 brew install figlet		#yeah
 brew install tree
+brew install unzip
 
 brew install python3
 brew install node

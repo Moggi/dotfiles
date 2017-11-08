@@ -4,9 +4,7 @@ wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
 echo "deb http://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
 sudo apt-get update
 sudo apt-get install -y rcm
-rcup bash_profile
-rcup vimrc
-rcup zshrc
+echo "rcm for dotfiles: 'mkrc <files>' then 'rcup <files>'"
 
 sudo apt-get install -y git\
 	wget\
@@ -25,7 +23,8 @@ sudo apt-get install -y git\
 	sqlite\
 	jq\
 	docker\
-	tmux
+	tmux\
+	unzip
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

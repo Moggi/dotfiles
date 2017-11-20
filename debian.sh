@@ -6,24 +6,24 @@ sudo apt-get update
 sudo apt-get install -y rcm
 echo "rcm for dotfiles: 'mkrc <files>' then 'rcup <files>'"
 
-sudo apt-get install -y git\
-	wget\
-	curl\
-	vim\
-	zsh\
-	nmap\
-	less\
-	dos2unix\
-	man\
-	tree\
-	htop\
-	figlet\
-	python3\
-	node\
-	sqlite\
-	jq\
-	docker\
-	tmux\
+sudo apt-get install -y git \
+	wget \
+	curl \
+	vim \
+	zsh \
+	nmap \
+	less \
+	dos2unix \
+	man \
+	tree \
+	htop \
+	figlet \
+	python3 \
+	node \
+	sqlite \
+	jq \
+	docker \
+	tmux \
 	unzip
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

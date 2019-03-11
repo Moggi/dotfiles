@@ -23,5 +23,9 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export PATH="/usr/local/sbin:$PATH"
+
 [[ -r $HOME/.goto/gt.sh ]] && source $HOME/.goto/gt.sh
 [[ -r $HOME/.bash_profile ]] && source $HOME/.bash_profile
+
+export PATH="/usr/local/opt/node@8/bin:$PATH"

@@ -50,12 +50,12 @@ set autoindent					"repeat indentation on new line
 
 "ts = tabstop / sw = shiftwidth / sts = softtabstop
 augroup filetypeTab
-	au FileType c,cpp setlocal ts=8 sw=8 tw=80
+	au FileType c,cpp setlocal ts=4 sw=4 tw=80
 	au Filetype python,xml,octave,java,text,tex setlocal expandtab ts=4 sw=4 sts=4
 	au Filetype python setlocal tw=79
 	au Filetype tex setlocal tw=80 directory=.
 	au Filetype htmldjango,pov setlocal ts=4 sw=4 sts=4
-	au Filetype html,javascript,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
+	au Filetype html,javascript,yml,toml,vim,json,ruby,eruby,arduino,bib,help setlocal expandtab ts=2 sw=2 sts=2
 	"au Filetype html,javascript,vim,json,help setlocal ts=4 sw=4 sts=4
 augroup END
 

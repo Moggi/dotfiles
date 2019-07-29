@@ -2,6 +2,7 @@
 alias l="ls -halp"
 alias ll="ls -hlp"
 alias lm="ls -hp"
+alias dockerls="docker container ls -a"
 
 export GOTO_EDITOR="vim"
 

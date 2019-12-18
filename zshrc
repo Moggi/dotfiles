@@ -16,6 +16,7 @@ plugins=(git)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source $ZSH/oh-my-zsh.sh
+source <(kubectl completion zsh)
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -31,4 +32,6 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 export PATH="/usr/local/lib/flutter/bin:$PATH"
+
+export TERM="screen-256color"
 

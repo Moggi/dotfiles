@@ -37,6 +37,7 @@ set undolevels=500				"undo up to X commands
 set background=dark				"only way to go
 "let g:despacio_Midnight = 1	"despacio stuff (background dark gray)
 let g:enable_bold_font = 1		"hybrid_material stuff
+let g:airline_theme='simple'
 colorscheme hybrid_material		"angr, jellybeans, despacio, hybrid_material
 
 """"""""""""""""""""""""""""""""
@@ -107,6 +108,8 @@ map <Space> <Leader>
 
 " select all
 nmap <Leader>a ggVG
+
+map f w
 
 " save, quit, quit all
 nnoremap <Leader>w :w!<CR>

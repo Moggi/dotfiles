@@ -8,6 +8,20 @@ alias dockeri="docker image"
 
 export GOTO_EDITOR="vim"
 
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
+case "$(uname -s)" in
+    Linux)
+		alias python3="python3.8"
+
+		export ANDROID_HOME=$HOME/Android/Sdk
+
+		;;
+	Darwin)
+		export ANDROID_HOME="$HOME/Library/Android/sdk"
+		export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
+
+		;;
+esac
+
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 

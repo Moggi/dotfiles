@@ -22,7 +22,7 @@ call plug#end()
 "	GENERAL
 """"""""""""""""""""""""""""""""
 set encoding=utf-8
-set mouse=a						"active the mouse support
+"set mouse=a						"active the mouse support
 set backspace=indent,eol,start
 set history=500					"remember the last X unique commands
 set undolevels=500				"undo up to X commands

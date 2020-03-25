@@ -1,13 +1,23 @@
+
 # dotfiles
+
 Personal dotfiles
 
-### Reminder:
+## Reminder
+
 1. Clone this repo at ~/.dotfiles
-2. Run **homebew.sh** or:
-    1. apt-get upgrade
-    2. apt-get install -y [rcm](https://github.com/thoughtbot/rcm)
-    3. rcup "files"
-    4. Run **debian.sh** or **container.sh**
-    5. [vim-plug](https://github.com/junegunn/vim-plug): ```PlugUpdate!```
-3. [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-4. [goTo](https://github.com/Moggi/goTo)
+2. Run ```debian-based.sh``` or ```darwin-based.sh```
+3. For [oh-my-zsh][1]: ```chsh -s /bin/zsh```
+4. Open **vim** and install [vim-plug][2]: ```PlugUpdate!```
+5. Don't forget this: [goTo][3]
+
+[1]: https://github.com/ohmyzsh/ohmyzsh#basic-installation
+[2]: https://github.com/junegunn/vim-plug#installation
+[3]: https://github.com/Moggi/goTo
+
+## One-liner (WIP)
+
+```sh
+# Of course it needs *curl* beforehand
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Moggi/dotfiles/master/install.sh)"
+```

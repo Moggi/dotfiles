@@ -6,9 +6,9 @@ function _print {
 
 _print "Initializing with \`apt update\` and \`apt install\`"
 
-sudo apt update
+sudo apt-get -qq update
 
-sudo apt install -y git \
+sudo apt-get -qq install -y git \
 	less \
 	wget \
 	curl \

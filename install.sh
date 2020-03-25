@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function _print {
-    echo -e "\n||== \t$1\t ==||\n"
+    echo -e "\n||==\t$1\t==||\n"
 }
 
 function _check_cmd {
@@ -77,6 +77,8 @@ case "$(uname -s)" in
         _check_cmd git
         if [[ $? -gt 0 ]]; then
             sudo apt-get -qq install git
+        else
+            _print "Git is already installed"
         fi
 
         _git_clone_and_link_dotfiles
@@ -105,7 +107,8 @@ case "$(uname -s)" in
 esac
 
 # vim-plug
-case _install_vim-plug in
+_install_vim-plug
+case $? in
     1)
         _print "vim-plug is already installed"
         ;;
@@ -116,7 +119,8 @@ esac
 
 
 # goTo
-case _install_goTo in
+_install_goTo
+case $? in
     1)
         _print "goTo is already installed"
         ;;

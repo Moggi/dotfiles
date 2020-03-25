@@ -3,7 +3,7 @@
 
 Personal dotfiles
 
-## Reminder
+## How to
 
 1. Clone this repo at ~/.dotfiles
 2. Run ```debian-based.sh``` or ```darwin-based.sh```
@@ -19,5 +19,5 @@ Personal dotfiles
 
 ```sh
 # Of course it needs *curl* beforehand
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Moggi/dotfiles/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Moggi/dotfiles/master/install.sh)"
 ```

@@ -48,8 +48,7 @@ function _install_goTo {
 
 function _install_vim-plug {
     _print "Checking vim-plug"
-    if [[ -r $HOME/.vim/autoload/plug.vim ]]
-    then
+    if [[ -r $HOME/.vim/autoload/plug.vim ]]; then
         return 1
     fi
 
@@ -68,6 +67,18 @@ function _install_vim-plug {
     fi
 }
 
+function _install_ohmyzsh {
+    _print "Checking oh-my-zsh"
+    if [[ -d $HOME/.oh-my-zsh/ ]]; then
+        return 1
+    fi
+
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    if [[ $? -gt 0 ]]; then
+        return 2
+    fi
+}
+
 case "$(uname -s)" in
     Linux)
 		_print "Starting Linux setup"
@@ -80,8 +91,6 @@ case "$(uname -s)" in
         else
             _print "Git is already installed"
         fi
-
-        _git_clone_and_link_dotfiles
 
         $PWD/debian-based.sh
 
@@ -99,12 +108,25 @@ case "$(uname -s)" in
             brew install git
         fi
 
-        _git_clone_and_link_dotfiles
-
         $PWD/darwin-based.sh
 
 		;;
 esac
+
+# ohmyzsh
+_install_ohmyzsh
+case $? in
+    1)
+        _print "oh-my-zsh is already installed"
+        ;;
+    2)
+        _print "Could not download oh-my-zsh"
+        ;;
+esac
+
+
+_git_clone_and_link_dotfiles
+
 
 # vim-plug
 _install_vim-plug

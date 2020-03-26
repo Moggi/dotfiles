@@ -15,7 +15,7 @@ Personal dotfiles
 [2]: https://github.com/junegunn/vim-plug#installation
 [3]: https://github.com/Moggi/goTo
 
-## One-liner (WIP)
+## One-liner
 
 ```sh
 # Of course it needs *curl* beforehand

@@ -1,4 +1,10 @@
-#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#!/bin/bash
+
+function _print {
+    echo -e "\n||== \t$1\t ==||\n"
+}
+
+_print "Initializing with \`brew install\`"
 
 brew install git
 brew install zsh
@@ -17,5 +23,4 @@ brew install unzip
 
 brew install python3
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+_print "All set."

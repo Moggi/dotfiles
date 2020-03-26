@@ -4,11 +4,9 @@ function _print {
     echo -e "\n||== \t$1\t ==||\n"
 }
 
-_print "Initializing with \`apt update\` and \`apt install\`"
+_print "Initializing with \`apt install\`"
 
-sudo apt-get -qq update
-
-sudo apt-get -qq install -y git \
+sudo apt-get install -y git \
 	less \
 	wget \
 	curl \
@@ -23,4 +21,5 @@ sudo apt-get -qq install -y git \
 	tmux \
 	unzip
 
+_print "All set."
 _print "You may want to run \`sudo apt upgrade\`"

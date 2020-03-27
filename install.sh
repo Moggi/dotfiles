@@ -24,8 +24,9 @@ function _git_clone_and_link_dotfiles {
 }
 
 function _install_goTo {
-    _check_cmd gt
-    if [[ $? -gt 0 ]]; then
+    _print "Checking goTo"
+
+    if [[ -r $HOME/.goto/gt.sh ]]; then
         return 1
     fi
 

@@ -32,7 +32,7 @@ function _git_clone_and_link_dotfiles {
 function _install_autojump {
     _check_cmd j
 
-    if [[ $? -gt 0 ]]; then
+    if [[ $? -eq 0 ]]; then
         return 1
     fi
 
@@ -133,7 +133,7 @@ case "$(uname -s)" in
         if [[ $? -gt 0 ]]; then
             ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
         fi
-        
+
         _check_cmd git
         if [[ $? -gt 0 ]]; then
             brew install git

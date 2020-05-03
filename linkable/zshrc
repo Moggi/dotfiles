@@ -23,7 +23,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 [[ -r $HOME/.goto/gt.sh ]] && source $HOME/.goto/gt.sh
 [[ -r $HOME/.bash_profile ]] && source $HOME/.bash_profile
-[[ -r /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
+[[ -r $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 export PATH="$HOME/.local/lib/flutter/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

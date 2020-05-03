@@ -12,15 +12,45 @@ function _check_cmd {
 
 function _git_clone_and_link_dotfiles {
     _print "Checking dotfiles"
-    git clone https://github.com/Moggi/dotfiles.git $HOME/.dotfiles
+
+    if [[ -d $HOME/.dotfiles/ ]]; then
+        git clone https://github.com/Moggi/dotfiles.git $HOME/.dotfiles
+    fi
 
     cd $HOME/.dotfiles/linkable
 
     for file in *; do
-        ln -s $PWD/$file $HOME/.$file
+        if [[ ! -h $HOME/.$file ]]; then
+            mv $HOME/.$file $HOME/.$file.bkp
+            ln -s $PWD/$file $HOME/.$file
+        fi
     done
 
     cd $HOME/.dotfiles
+}
+
+function _install_autojump {
+    _check_cmd j
+
+    if [[ $? -gt 0 ]]; then
+        return 1
+    fi
+
+    mkdir -p $HOME/Code/autojump/
+
+    git clone git://github.com/wting/autojump.git  $HOME/Code/autojump
+
+    cd $HOME/Code/autojump/
+
+    if [[ $? -gt 0 ]]; then
+        return 2
+    fi
+
+    python3 $PWD/install.py
+
+    if [[ $? -gt 0 ]]; then
+        return 3
+    fi
 }
 
 function _install_goTo {
@@ -30,17 +60,17 @@ function _install_goTo {
         return 1
     fi
 
-    mkdir -p $HOME/Code # git clone already creates the path, but..
+    mkdir -p $HOME/Code/goTo/ # git clone already creates the path, but..
 
-    git clone https://github.com/Moggi/goTo.git $HOME/Code/
+    git clone https://github.com/Moggi/goTo.git $HOME/Code/goTo
 
-    cd $HOME/Code/goTo
+    cd $HOME/Code/goTo/
 
     if [[ $? -gt 0 ]]; then
         return 2
     fi
 
-    $PWD/install.sh
+    bash $PWD/install.sh
 
     if [[ $? -gt 0 ]]; then
         return 3
@@ -140,6 +170,19 @@ case $? in
         ;;
 esac
 
+
+_install_autojump
+case $? in
+    1)
+        _print "autojump is already installed"
+        ;;
+    2)
+        _print "Could not clone autojump repository to \$HOME/Code"
+        ;;
+    3)
+        _print "Could not install autojump"
+        ;;
+esac
 
 # goTo
 _install_goTo

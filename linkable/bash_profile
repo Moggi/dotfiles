@@ -3,6 +3,8 @@ alias l="ls -halp"
 alias ll="ls -hlp"
 alias lm="ls -hp"
 
+alias ds="du -khd 1 . | sort -h"
+
 alias dockerls="docker container ls -a"
 alias dockeri="docker image"
 
@@ -10,7 +12,6 @@ export GOTO_EDITOR="vim"
 
 case "$(uname -s)" in
     Linux)
-		alias python3="python3.8"
 
 		export ANDROID_HOME=$HOME/Android/Sdk
 

@@ -4,9 +4,16 @@ function _print {
     echo -e "\n||== \t$1\t ==||\n"
 }
 
+SUDO=''
+command -v sudo >/dev/null 2>&1
+if [[ $? -eq 0 ]]
+then
+	SUDO='sudo'
+fi
+
 _print "Initializing with \`apt install\`"
 
-sudo apt-get install -y git \
+$SUDO apt-get install -y git \
 	less \
 	wget \
 	curl \
@@ -22,4 +29,4 @@ sudo apt-get install -y git \
 	unzip
 
 _print "All set."
-_print "You may want to run \`sudo apt upgrade\`"
+_print "You may want to run \`apt upgrade\`"

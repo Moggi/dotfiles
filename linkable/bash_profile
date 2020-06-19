@@ -5,6 +5,13 @@ alias lm="ls -hp"
 
 alias ds="du -khd 1 . | sort -h"
 
+alias gs='git status'
+alias gl='git log'
+alias glg='git log --graph'
+alias glp='git log --pretty=oneline'
+
+alias fetch_pull='git fetch && git pull'
+
 alias dockerls="docker container ls -a"
 alias dockeri="docker image"
 
@@ -26,3 +33,4 @@ esac
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)

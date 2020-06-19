@@ -13,7 +13,7 @@ function _check_cmd {
 function _git_clone_and_link_dotfiles {
     _print "Checking dotfiles"
 
-    if [[ -d $HOME/.dotfiles/ ]]; then
+    if [[ ! -d $HOME/.dotfiles ]]; then
         git clone https://github.com/Moggi/dotfiles.git $HOME/.dotfiles
     fi
 
@@ -30,7 +30,7 @@ function _git_clone_and_link_dotfiles {
 }
 
 function _install_autojump {
-    _check_cmd j
+    _check_cmd autojump
 
     if [[ $? -eq 0 ]]; then
         return 1
@@ -38,43 +38,20 @@ function _install_autojump {
 
     mkdir -p $HOME/Code/autojump/
 
-    git clone git://github.com/wting/autojump.git  $HOME/Code/autojump
+    git clone https://github.com/wting/autojump.git  $HOME/Code/autojump
 
     cd $HOME/Code/autojump/
 
-    if [[ $? -gt 0 ]]; then
+    if [[ $? -ne 0 ]]; then
         return 2
     fi
 
     python3 $PWD/install.py
 
-    if [[ $? -gt 0 ]]; then
+    if [[ $? -ne 0 ]]; then
         return 3
     fi
-}
-
-function _install_goTo {
-    _print "Checking goTo"
-
-    if [[ -r $HOME/.goto/gt.sh ]]; then
-        return 1
-    fi
-
-    mkdir -p $HOME/Code/goTo/ # git clone already creates the path, but..
-
-    git clone https://github.com/Moggi/goTo.git $HOME/Code/goTo
-
-    cd $HOME/Code/goTo/
-
-    if [[ $? -gt 0 ]]; then
-        return 2
-    fi
-
-    bash $PWD/install.sh
-
-    if [[ $? -gt 0 ]]; then
-        return 3
-    fi
+    # @TODO: edit $HOME/.autojump/bin/autojump shebang to use python3   
 }
 
 function _install_vim-plug {
@@ -86,14 +63,14 @@ function _install_vim-plug {
     curl -fsSLo $HOME/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     
-    if [[ $? -gt 0 ]]; then
+    if [[ $? -ne 0 ]]; then
         return 2
     fi
 
     _check_cmd vim
 
-    vim -es -u $HOME/.vimrc -i NONE -c "PlugUpdate\!" -c "qa"
-    if [[ $? -gt 0 ]]; then # @TODO: Does it return something usable?
+    vim -esc "PlugUpdate!" -c "qa"
+    if [[ $? -ne 0 ]]; then # @TODO: Does it return something usable?
         return 3
     fi
 }
@@ -105,24 +82,28 @@ function _install_ohmyzsh {
     fi
 
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    if [[ $? -gt 0 ]]; then
+    if [[ $? -ne 0 ]]; then
         return 2
     fi
 }
+
+
+SUDO=""
+
+_check_cmd sudo
+if [[ $? -eq 0 ]]
+then
+    SUDO='sudo'
+fi
 
 case "$(uname -s)" in
     Linux)
 		_print "Starting Linux setup"
 
-        sudo apt-get -qq update
+        _print "apt-get update"
+        $SUDO apt-get -qq update
 
-        _check_cmd git
-        if [[ $? -gt 0 ]]; then
-            sudo apt-get -qq install git
-        else
-            _print "Git is already installed"
-        fi
-
+        _print "bash -c $PWD/debian-based.sh"
         $PWD/debian-based.sh
 
 		;;
@@ -130,13 +111,8 @@ case "$(uname -s)" in
 		_print "Starting Darwin setup"
 
         _check_cmd brew
-        if [[ $? -gt 0 ]]; then
+        if [[ $? -ne 0 ]]; then
             ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
-        fi
-
-        _check_cmd git
-        if [[ $? -gt 0 ]]; then
-            brew install git
         fi
 
         $PWD/darwin-based.sh
@@ -184,22 +160,9 @@ case $? in
         ;;
 esac
 
-# goTo
-_install_goTo
-case $? in
-    1)
-        _print "goTo is already installed"
-        ;;
-    2)
-        _print "Could not clone goTo repository to \$HOME/Code"
-        ;;
-    3)
-        _print "Could not install goTo"
-        ;;
-esac
 
 cd $HOME
 
 
 _print "Ending now..."
-_print "You may need to change your terminal emulator settings to use \`zsh -i\` on start"
+_print "You may want to change your terminal emulator settings to use \`zsh -i\` on start"

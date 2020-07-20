@@ -71,6 +71,7 @@ set wildmenu					"visual autocomplete for command menu
 set lazyredraw					"redraw only when we need to
 set showmatch					"highlight matching [{()}]
 set ruler						"show cursor line and column
+set paste						"prevent vim to autoindent when pasting
 " set cmdheight=2				"command has 2 lines
 
 """"""""""""""""""""""""""""""""

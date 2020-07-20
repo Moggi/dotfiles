@@ -21,7 +21,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/sbin:$PATH"
 
-# [[ -r $HOME/.goto/gt.sh ]] && source $HOME/.goto/gt.sh
 [[ -r $HOME/.bash_profile ]] && source $HOME/.bash_profile
 [[ -r $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 

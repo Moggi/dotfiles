@@ -25,11 +25,12 @@ case "$(uname -s)" in
     Linux)
 
 		export ANDROID_HOME=$HOME/Android/Sdk
+        export GTK_IM_MODULE=cedilla
+        export QT_IM_MODULE=cedilla
 
 		;;
 	Darwin)
 		export ANDROID_HOME="$HOME/Library/Android/sdk"
-		export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
 
 		;;
 esac
@@ -37,7 +38,9 @@ esac
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+LINUX_BREW_BIN=/home/linuxbrew/.linuxbrew/bin
 
-export GTK_IM_MODULE=cedilla
-export QT_IM_MODULE=cedilla
+if [[ -f $LINUX_BREW_BIN ]]; then
+    export PATH=$PATH:$LINUX_BREW_BIN
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi

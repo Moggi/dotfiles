@@ -7,12 +7,14 @@ alias ds="du -khd 1 . | sort -h"
 
 alias gs='git status'
 alias gl='git log'
+alias gr='git restore'
 alias glg='git log --graph'
 alias glp='git log --pretty=oneline'
 
 alias fetch_pull='git fetch && git pull'
 
-alias dockerls="docker container ls -a"
+alias dockerlsa="docker container ls -a"
+alias dockerls="docker container ls --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}'"
 alias dockeri="docker image"
 
 alias dc="docker-compose"

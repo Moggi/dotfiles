@@ -40,7 +40,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 LINUX_BREW_BIN=/home/linuxbrew/.linuxbrew/bin
 
-if [[ -f $LINUX_BREW_BIN ]]; then
+if [[ -d $LINUX_BREW_BIN ]] && [[ -x $LINUX_BREW_BIN/brew ]]; then
     export PATH=$PATH:$LINUX_BREW_BIN
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    eval $($LINUX_BREW_BIN/brew shellenv)
 fi

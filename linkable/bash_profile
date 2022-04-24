@@ -11,7 +11,7 @@ alias gr='git restore'
 alias glg='git log --graph'
 alias glp='git log --pretty=oneline'
 
-alias fetch_pull='git fetch && git pull'
+alias fetch_pull='git fetch $@ && git pull $@'
 
 alias dockerlsa="docker container ls -a"
 alias dockerls="docker container ls --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}'"

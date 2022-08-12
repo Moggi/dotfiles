@@ -3,7 +3,10 @@ alias l="ls -halp"
 alias ll="ls -hlp"
 alias lm="ls -hp"
 
-alias ds="du -khd 1 . | sort -h"
+# alias ds="du -khd 1 . | sort -h"
+ds(){
+    du -khd 1 $@ | sort -h
+}
 
 alias gs='git status'
 alias gl='git log'

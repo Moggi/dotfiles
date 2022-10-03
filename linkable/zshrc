@@ -24,12 +24,14 @@ export PATH="/usr/local/sbin:$PATH"
 [[ -r $HOME/.bash_profile ]] && source $HOME/.bash_profile
 [[ -r $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
-export PATH="$HOME/.local/lib/flutter/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.deta/bin:$PATH"
+if [ -d "$HOME/.local/lib/flutter/bin" ]; then; export PATH="$HOME/.local/lib/flutter/bin:$PATH"; fi
+if [ -d "$HOME/.local/bin" ]; then; export PATH="$HOME/.local/bin:$PATH"; fi
+if [ -d "$HOME/.deta/bin" ]; then; export PATH="$HOME/.deta/bin:$PATH"; fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+if [ -d "$HOME/.pyenv" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
@@ -38,9 +40,9 @@ fi
 
 ulimit -n 2048
 
-export PATH="/usr/local/opt/node@12/bin:$PATH"
+if [ -d "/usr/local/opt/node@12/bin" ]; then; export PATH="/usr/local/opt/node@12/bin:$PATH"; fi
 
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+if [ -d "/usr/local/opt/mysql-client/bin" ]; then export PATH="/usr/local/opt/mysql-client/bin:$PATH"; fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.google-cloud-sdk/path.zsh.inc"; fi

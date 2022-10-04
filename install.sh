@@ -36,11 +36,11 @@ function _install_autojump {
         return 1
     fi
 
-    mkdir -p $HOME/Code/autojump/
+    mkdir -p $HOME/code/autojump/
 
-    git clone https://github.com/wting/autojump.git  $HOME/Code/autojump
+    git clone https://github.com/wting/autojump.git  $HOME/code/autojump
 
-    cd $HOME/Code/autojump/
+    cd $HOME/code/autojump/
 
     if [[ $? -ne 0 ]]; then
         return 2
@@ -153,7 +153,7 @@ case $? in
         _print "autojump is already installed"
         ;;
     2)
-        _print "Could not clone autojump repository to \$HOME/Code"
+        _print "Could not clone autojump repository to \$HOME/code"
         ;;
     3)
         _print "Could not install autojump"

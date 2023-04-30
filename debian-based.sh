@@ -26,7 +26,8 @@ $SUDO apt-get install -y git \
 	python3-pip \
 	jq \
 	tmux \
-	unzip
+	unzip \
+	xclip
 
 _print "All set."
 _print "You may want to run \`apt upgrade\`"

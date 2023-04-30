@@ -34,6 +34,11 @@ alias dockeri="docker image"
 
 alias dc="docker-compose"
 
+if ! command -v pbcopy 1>/dev/null 2>&1; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+fi
+
 export GOTO_EDITOR="vim"
 
 case "$(uname -s)" in

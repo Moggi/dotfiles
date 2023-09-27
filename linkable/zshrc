@@ -26,7 +26,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 if [ -d "$HOME/.local/lib/flutter/bin" ]; then; export PATH="$HOME/.local/lib/flutter/bin:$PATH"; fi
 if [ -d "$HOME/.local/bin" ]; then; export PATH="$HOME/.local/bin:$PATH"; fi
-if [ -d "$HOME/.deta/bin" ]; then; export PATH="$HOME/.deta/bin:$PATH"; fi
+if [ -d "$HOME/.detaspace/bin" ]; then; export PATH="$HOME/.detaspace/bin:$PATH"; fi
 
 if [ -d "$HOME/.pyenv" ]; then
   export PYENV_ROOT="$HOME/.pyenv"

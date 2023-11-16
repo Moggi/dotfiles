@@ -123,3 +123,30 @@ function codeclimate() {
   		codeclimate/codeclimate \
 		$*
 }
+
+function swaggerui() {
+    command_name=$0
+    openapi_path=$1
+    if [ -z ${1+x} ]; then
+        echo "[!] Usage: $command_name <path/openapi.yaml>"
+        echo "[!] Example: $command_name \"./openapi.yaml\""
+    elif command -v podman 1>/dev/null 2>&1; then
+        final_path=`realpath $openapi_path`
+
+        if [[ -f $final_path ]]; then
+            echo "[>] Showing SwaggerUI for \"$openapi_path\" with podman on port 8090."
+            podman run \
+                -itd \
+                --rm \
+                --name swaggerui \
+                -p 8090:8080 \
+                -e API_URL=doc/openapi.yaml \
+                -v $final_path:/usr/share/nginx/html/doc/openapi.yaml \
+                swaggerapi/swagger-ui
+        else
+            echo "Could not read $openapi_path. Is it a file?"
+        fi
+    else
+        echo "This script depends on podman"
+    fi
+}

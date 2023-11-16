@@ -112,14 +112,24 @@ export PYTHONOPTIMIZE=1
 
 function codeclimate() {
     # Codeclimate CLI expects docker socket connection. Does not work with podman
-	docker run \
-  		--interactive --tty --rm \
-  		--env CODECLIMATE_CODE="$PWD" \
-  		--volume "$PWD":/code \
-  		--volume /var/run/docker.sock:/var/run/docker.sock \
-  		--volume /tmp/cc:/tmp/cc \
-  		codeclimate/codeclimate \
-		$*
+    command_name=$0
+    args=$*
+    if [ -z ${1+x} ]; then
+        echo "[!] Usage: $command_name <command>"
+        echo "[!] Example: $command_name analyze -f html > var/codeclimate.html"
+    elif command -v openssl 1>/dev/null 2>&1; then
+        echo "[>] Running Codeclimate CLI with args \"$args\" with Docker."
+        docker run \
+            --interactive --tty --rm \
+            --env CODECLIMATE_CODE="$PWD" \
+            --volume "$PWD":/code \
+            --volume /var/run/docker.sock:/var/run/docker.sock \
+            --volume /tmp/cc:/tmp/cc \
+            codeclimate/codeclimate \
+            $*
+    else
+        echo "This script depends on docker"
+    fi
 }
 
 function swaggerui() {
@@ -127,7 +137,7 @@ function swaggerui() {
     openapi_path=$1
     if [ -z ${1+x} ]; then
         echo "[!] Usage: $command_name <path/openapi.yaml>"
-        echo "[!] Example: $command_name \"./openapi.yaml\""
+        echo "[!] Example: $command_name ./openapi.yaml"
     elif command -v podman 1>/dev/null 2>&1; then
         final_path=`realpath $openapi_path`
 

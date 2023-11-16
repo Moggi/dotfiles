@@ -13,7 +13,8 @@ fi
 
 _print "Initializing with \`apt install\`"
 
-$SUDO apt-get install -y git \
+$SUDO apt-get install -y \
+	git \
 	less \
 	wget \
 	curl \
@@ -27,6 +28,7 @@ $SUDO apt-get install -y git \
 	jq \
 	tmux \
 	unzip \
+	podman \
 	xclip
 
 _print "All set."

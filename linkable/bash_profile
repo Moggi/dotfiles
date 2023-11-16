@@ -28,6 +28,7 @@ function fetch_pull(){
     git fetch $@ && git pull $@
 }
 
+alias podmanlsa="docker container ls -a"
 alias dockerlsa="docker container ls -a"
 alias dockerls="docker container ls --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}'"
 alias dockeri="docker image"
@@ -112,6 +113,7 @@ function b64_encode() {
 export PYTHONOPTIMIZE=1
 
 function codeclimate() {
+    # Codeclimate CLI expects docker socket connection. Does not work with podman
 	docker run \
   		--interactive --tty --rm \
   		--env CODECLIMATE_CODE="$PWD" \

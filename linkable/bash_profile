@@ -158,3 +158,22 @@ function swaggerui() {
         echo "This script depends on podman"
     fi
 }
+
+function plantuml() {
+    command_name=$0
+    args=$*
+    if [ -z ${1+x} ]; then
+        echo "[!] Usage: $command_name <command>"
+        echo "[!] Example: $command_name -help"
+    elif command -v podman 1>/dev/null 2>&1; then
+
+        echo "[>] Running Plantuml CLI with args \"$args\" with podman."
+        podman run \
+            --rm \
+            -v $PWD:/data \
+            ghcr.io/plantuml/plantuml \
+            $*
+    else
+        echo "This script depends on podman"
+    fi
+}

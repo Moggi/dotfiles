@@ -164,7 +164,7 @@ function plantuml() {
     args=$*
     if [ -z ${1+x} ]; then
         echo "[!] Usage: $command_name <command>"
-        echo "[!] Example: $command_name -help"
+        echo "[!] Example: $command_name -o out diagrams"
     elif command -v podman 1>/dev/null 2>&1; then
 
         echo "[>] Running Plantuml CLI with args \"$args\" with podman."
@@ -172,6 +172,25 @@ function plantuml() {
             --rm \
             -v $PWD:/data \
             ghcr.io/plantuml/plantuml \
+            $*
+    else
+        echo "This script depends on podman"
+    fi
+}
+
+function cloc() {
+    command_name=$0
+    args=$*
+    if [ -z ${1+x} ]; then
+        echo "[!] Usage: $command_name <command>"
+        echo "[!] Example: $command_name ."
+    elif command -v podman 1>/dev/null 2>&1; then
+
+        echo "[>] Running cloc CLI with args \"$args\" with podman."
+        podman run \
+            --rm \
+            -v $PWD:/tmp \
+            aldanial/cloc \
             $*
     else
         echo "This script depends on podman"
